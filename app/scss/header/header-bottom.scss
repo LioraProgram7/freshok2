@@ -1,0 +1,372 @@
+.header-bottom {
+  background-color: $green-900;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    position: relative;
+  }
+
+  &__btn {
+    min-width: 240px;
+    height: 50px;
+    background-color: $white;
+    border-radius: 6px;
+    @extend %opensans-600;
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: 0.03em;
+    color: $green-900;
+    padding: 15px 38px 15px 61px;
+    position: relative;
+    border: none;
+    transform: translateX(-7px);
+    transition: color 0.5s;
+    cursor: pointer;
+    margin-right: 10px;
+
+    &:hover {
+      background-color: $green-200;
+      border-radius: 6px 6px 0px 0px;
+    }
+
+    &:focus {
+      outline: 4px solid $green-200;
+    }
+
+    &.transform {
+      background-color: $green-200;
+      border-radius: 6px 6px 0px 0px;
+    }
+
+    &.transform::after {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__btn::before,
+  &__btn::after {
+    content: '';
+    position: absolute;
+    @extend %bg-img;
+  }
+
+  &__btn::before {
+    background-image: url('../images/icons/nav_icon.svg');
+    width: 25px;
+    height: 17px;
+    top: 16px;
+    left: 18px;
+  }
+
+  &__btn::after {
+    background-image: url('../images/icons/icon-chevron.svg');
+    width: 10px;
+    height: 7.23px;
+    top: 21px;
+    right: 18px;
+    background-size: auto;
+  }
+
+  &__wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  &__filter {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 240px;
+    background-color: $white;
+    border: 1px solid #EBEBEB;
+    border-radius: 0px 0px 6px 6px;
+    box-sizing: border-box;
+    overflow: auto;
+    z-index: 999;
+    transform: translate(-7px, 0px);
+  }
+
+  &__filter-btn {
+    padding: 15px 24px;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+    color: #000000;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(193, 193, 193, 0.3);
+    }
+
+    &:hover {
+      color: $green-900;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        height: 50px;
+        width: 3px;
+        top: 0;
+        left: 0;
+        background-color: $green-900;
+      }
+    }
+
+    &:focus {
+      outline: 3px solid #E0EDCF;
+    }
+
+    &:active {
+      color: $silver-600;
+    }
+  }
+
+  &__search {
+    display: flex;
+    transform: translateX(-17px);
+  }
+
+  &__search-block {
+    position: relative;
+  }
+
+  &__search-vector {
+    position: absolute;
+    top: 8px;
+    left: 4px;
+    padding: 8px 8px 5px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    cursor: none;
+
+    &:focus {
+      outline: 3px solid $white;
+      border-radius: 3px;
+    }
+
+    svg {
+      width: 20px;
+      height: 21px;
+    }
+
+    use {
+      width: 20px;
+      height: 21px;
+    }
+  }
+
+  &__search-input {
+    min-width: 418px;
+    height: 50px;
+    border-radius: 6px 0 0 6px;
+    color: $dark-800;
+    border: none;
+    padding: 15px 51px;
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: 0.03em;
+    transition: color 0.5s;
+
+    &:focus {
+      outline: solid 4px rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  &__user-nav {
+    max-width: 173px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__user-item {
+    display: flex;
+  }
+
+  &__user-item:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &__user-link {
+    position: relative;
+    transition: background-color 0.5s;
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+
+    svg {
+      transform: translateY(9px);
+    }
+
+    svg use {
+      fill: $white;
+      transition: fill 0.5s;
+    }
+
+    &:hover {
+      background-color: rgb(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+
+    &:focus {
+      outline: 3px solid $green-100;
+      border-radius: 3px;
+    }
+
+    &:active svg use {
+      fill: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  &__user-link--user svg,
+  &__user-link--user use {
+    width: 25px;
+    height: 32px;
+  }
+
+  &__user-link--search svg,
+  &__user-link--search use {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__user-link--heart svg,
+  &__user-link--heart use {
+    width: 32px;
+    height: 29px;
+  }
+
+  &__user-link--cart svg,
+  &__user-link--cart use {
+    width: 32px;
+    height: 31px;
+  }
+
+  &__user-num {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: $white;
+    @extend %opensans-600;
+    font-size: 10px;
+    color: $red-900;
+    text-align: center;
+    line-height: 18px;
+    transform: translate(-13px, 3px);
+
+    &--two {
+      transform: translate(4px, 3px);
+    }
+  }
+
+  &__user-item--search {
+    display: none;
+  }
+}
+
+
+@media (max-width: $xxl) {
+  .header-bottom {
+    &__btn {
+      margin-left: 10px;
+    }
+
+    &__search-input {
+      min-width: 218px;
+    }
+
+    &__filter {
+      transform: translate(3px, 0px);
+    }
+  }
+}
+
+@media (max-width: $xl) {
+  .header-bottom {
+    &__logo {
+      display: none;
+    }
+  }
+
+  .logo-short {
+    display: block;
+  }
+}
+
+@media (max-width: $lg) {
+  .header-bottom {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+    margin-top: 49px;
+
+    &__inner {
+      padding: 11px 0;
+    }
+
+    &__user-nav {
+      max-width: 155px;
+    }
+
+    &__user-link {
+      width: 40px;
+      height: 40px;
+    }
+
+    &__user-link--user {
+      display: none;
+    }
+
+    &__user-item--search {
+      display: inherit;
+    }
+
+    &__btn {
+      display: none;
+    }
+
+    &__search {
+      opacity: 0;
+      position: absolute;
+      transition: all 0.5s;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &__search.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    &__search-input {
+      border-radius: 0;
+      min-width: fit-content;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__search-btn {
+      border-radius: 0;
+      min-width: 110px;
+    }
+
+    &__user-item:not(:last-child) {
+      margin-right: 8px;
+    }
+
+    &__user-link svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

@@ -1,0 +1,108 @@
+.service {
+  background-color: $silver-100;
+  padding: 47px 0 29px;
+  letter-spacing: 0;
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__item {
+    padding-left: 74px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      @extend %bg-img;
+      width: 50px;
+      height: 50px;
+      top: 0;
+      left: 0;
+    }
+
+    &--scooter,
+    &--box {
+      margin-right: 65px;
+    }
+
+    &--24-hours {
+      margin-right: 53px;
+    }
+  }
+
+  &__item--scooter::before {
+    background-image: url(../images/service-scooter.svg);
+  }
+
+  &__item--box::before {
+    background-image: url(../images/service-box.svg);
+  }
+
+  &__item--24-hours::before {
+    background-image: url(../images/service-24-hours.svg);
+  }
+
+  &__name {
+    @extend %opensans-600;
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  &__text {
+    color: $dark-500;
+    max-width: 190px;
+    width: 100%;
+  }
+}
+
+
+
+@media (max-width: $lg) {
+  .service {
+    &__inner {
+      justify-content: space-between;
+    }
+
+    &__item {
+      margin-right: 0;
+    }
+
+    &__item:not(:last-child) {
+      margin-right: 40px;
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .service {
+    &__inner {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__item:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 31px;
+    }
+
+    &__item--24-hours {
+      margin-right: 72px;
+    }
+
+    &__text {
+      max-width: none;
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .service {
+    padding: 34px 0;
+
+    &__inner {
+      align-items: flex-start;
+    }
+  }
+}

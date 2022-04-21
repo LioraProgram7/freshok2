@@ -1,0 +1,61 @@
+.promotions {
+  background-color: #F5F5F5;
+  text-align: center;
+
+  &__title {
+    margin-bottom: 32px;
+  }
+
+  &__list {
+    margin-bottom: 46px;
+  }
+
+  &__items {
+    margin-bottom: 48px;
+  }
+}
+
+//код карточки товара в файле product-item--mini
+
+@media (max-width: $xxl) {
+  .promotions {
+    &__items {
+      grid-gap: 15px;
+    }
+  }
+}
+
+@media (max-width: $xl) {
+  .promotions {
+    &__items {
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .promotions {
+    &__items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .promotions {
+    &__items {
+      margin-bottom: 24px;
+    }
+
+    &__title {
+      margin-bottom: 24px;
+    }
+
+    &__list {
+      margin-bottom: 28px;
+    }
+  }
+}
