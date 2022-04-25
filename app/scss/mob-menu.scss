@@ -65,14 +65,16 @@
       }
     }
 
-    // при нажатии на ,,каталог товаров,, появляется header-bottom__filter. Но никак не получаеться header-bottom__filter сделать поверх mob__menu. Z-index у header-bottom__filter больше нежели у mob__menu
+    .header-bottom__filter {
+      display: none;
+    }
+
     .header-bottom__btn {
       display: inherit;
       color: $dark-800;
       font-size: 18px;
       padding: 13px 15px 34px 53px;
       margin: 0;
-
       height: 42px;
 
       &::before {
@@ -98,7 +100,6 @@
         background-color: $white;
         border-radius: 0;
       }
-
     }
 
     &__contact {

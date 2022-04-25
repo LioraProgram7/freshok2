@@ -23,11 +23,16 @@
     object-fit: cover;
   }
 
+  &__item {
+    height: 558px;
+  }
+
   &__link {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 68px 20px;
+    height: 558px;
   }
 }
 
@@ -752,50 +757,100 @@
   cursor: pointer;
 }
 
-// вобщем у меня не выходит сделать галерею при открытии, пыталась и fancybox подключить, но он почему-то мне всю верстку ломает
-.mfp-arrow {
-  width: 60px;
-  height: 60px;
-}
-
 .mfp-figure::after {
   box-shadow: none;
 }
 
+.mfp-container {
+  padding: 54px 96px;
+}
+
 img.mfp-img {
-  // padding: 60px 300px 162px;
-  background-color: $white;
+  padding: 0;
 }
 
-.mfp-arrow:before,
-.mfp-arrow:after {
-  border: transparent;
+.mfp-image-holder .mfp-close {
+  right: 38px;
+  top: 22px;
+  cursor: pointer;
 }
 
-button.mfp-arrow::after {
-  content: '';
+.mfp-content {
+  width: 100%;
+  padding: 40px 120px;
+}
+
+.mfp-figure::after {
+  background-color: transparent;
+}
+
+.mfp-arrow {
+  opacity: 1;
+}
+
+.mfp-arrow-right::after,
+.mfp-arrow-left::after {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+}
+
+.mfp-arrow-right::after {
   background-image: url('../images/icons/arrow-next.svg');
-  width: 21px;
-  height: 32px;
-  top: 0;
-  left: -560px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 60px;
+  height: 60px;
+  margin-left: 0;
+  border-left: none;
 }
 
-.mfp-arrow::before {
-  content: '';
-  background-image: url('../images/icons/arrow-prev.svg');
-  width: 20px;
-  height: 32px;
-  top: 0;
-  left: 560px;
+.mfp-arrow-right::before {
+  border: none;
   margin-left: 0;
 }
 
-.mfp-counter {
-  color: transparent;
+.mfp-arrow-right:hover::after {
+  background-color: #E0EDCF;
 }
 
+.mfp-arrow-right:focus::after {
+  outline: 3px solid rgba(99, 166, 14, .5);
+}
 
+.mfp-arrow-left::after {
+  background-image: url('../images/icons/arrow-prev.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 60px;
+  height: 60px;
+  margin-right: 0;
+  border-right: none;
+}
+
+.mfp-arrow-left::before {
+  border: none;
+  margin-right: 0;
+}
+
+.mfp-arrow-left:hover::after {
+  background-color: #E0EDCF;
+}
+
+.mfp-arrow-left:focus::after {
+  outline: 3px solid rgba(99, 166, 14, .5);
+}
+
+.mfp-arrow-left {
+  left: 100px;
+}
+
+.mfp-arrow-right {
+  right: 100px;
+}
+
+.mfp-counter {
+  display: none;
+}
 
 
 @media (max-width: $xxl) {
@@ -924,13 +979,17 @@ button.mfp-arrow::after {
 
     &__link {
       padding: 10px 27px;
+      height: 345px;
+    }
+
+    &__item {
+      height: 345px;
     }
   }
 
   .product-content {
     &__title--adaptive {
       font-size: 26px;
-      text-align: left;
     }
 
     &__status {
@@ -1027,6 +1086,23 @@ button.mfp-arrow::after {
       margin-bottom: 18px;
     }
   }
+
+  .mfp-container {
+    padding: 15px 30px;
+  }
+
+  .mfp-content {
+    width: 100%;
+    padding: 40px 80px;
+  }
+
+  .mfp-arrow-left {
+    left: 35px;
+  }
+
+  .mfp-arrow-right {
+    right: 35px;
+  }
 }
 
 @media (max-width: $sm) {
@@ -1057,5 +1133,21 @@ button.mfp-arrow::after {
     .product-item__price {
       padding: 54px 9px 12px 13px;
     }
+  }
+
+  .mfp-container {
+    padding: 0;
+  }
+
+  .mfp-content {
+    padding: 153px 0px;
+  }
+
+  .mfp-arrow-left {
+    left: -15px;
+  }
+
+  .mfp-arrow-right {
+    right: -15px;
   }
 }

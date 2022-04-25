@@ -51,8 +51,7 @@ $(function () {
     tLoading: 'Loading image #%curr%...',
     gallery: {
       enabled: true,
-      navigateByImgClick: true,
-      preload: [0, 1]
+      navigateByImgClick: true
     },
   });
 
@@ -115,7 +114,7 @@ $(function () {
 
   // кнопка меню 
   $('.header-bottom__filter').hide();
-  $('.header-bottom__btn').on('click', function () {
+  $('.header-bottom__btn--catalog').on('click', function () {
     $('.header-bottom__filter').slideToggle();
     $(this).toggleClass('transform');
   });
